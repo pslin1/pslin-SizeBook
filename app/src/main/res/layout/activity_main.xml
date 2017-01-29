@@ -7,13 +7,13 @@
 
 
     <TextView
-        android:id="@+id/hello"
+        android:id="@+id/Records"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Records" />
 
     <ListView
-        android:id="@+id/RecordsList"
+        android:id="@+id/oldRecordsList"
         android:layout_width="fill_parent"
         android:layout_height="263dp"
         android:layout_weight="1"
