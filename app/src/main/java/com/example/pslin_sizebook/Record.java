@@ -12,8 +12,8 @@ public class Record {
     private float waist;
     private float hip;
 
-    public Record(String name)  {
-        this.setName(name);
+    public Record(String name) {
+        this.name = name;
     }
 
     public String getComment() {
