@@ -59,14 +59,15 @@ public class MainActivity extends AppCompatActivity {
                         nameText = (EditText) findViewById(R.id.name_field);
                         String name = nameText.getText().toString();
 
-                        Record record = null;
+                        //Record record = null;
 
-                        record = new Record(name);
+                        Record record = new Record(name);
 
                         recordList.add(record);
                         adapter.notifyDataSetChanged();
 
                         saveInFile();
+                        setContentView(R.layout.activity_main);
                     }
                 });
             }
@@ -78,8 +79,9 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
 
         readFromFile();
-
-        adapter = new ArrayAdapter<Record>(this, R.layout.record_display, recordList);
+        //creates arraylist or else new arrayadapter crashes
+        recordList = new ArrayList<Record>();
+        adapter = new ArrayAdapter<Record>(this, R.layout.record_list, recordList);
         oldRecordsList.setAdapter(adapter);
     }
 
