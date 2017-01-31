@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="fill_parent"
     android:layout_height="fill_parent">
+    <LinearLayout
+        android:id="@+id/save_button"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:id="@+id/save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save" />
+
+    </LinearLayout>
+    <ScrollView
+        android:id="@+id/record_fields"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+    <LinearLayout
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
 
     <TextView
         android:id="@+id/name"
@@ -13,8 +37,7 @@
         android:id="@+id/name_field"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="horizontal"
-        android:layout_toRightOf="@id/name"/>
+        android:scrollbars="horizontal" />
 
     <TextView
         android:id="@+id/neck"
@@ -26,8 +49,8 @@
         android:id="@+id/neck_field"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="horizontal"
-        android:inputType="numberDecimal"/>
+        android:inputType="numberDecimal"
+        android:scrollbars="horizontal" />
 
     <TextView
         android:id="@+id/bust"
@@ -39,8 +62,8 @@
         android:id="@+id/bust_field"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="horizontal"
-        android:inputType="numberDecimal"/>
+        android:inputType="numberDecimal"
+        android:scrollbars="horizontal" />
 
     <TextView
         android:id="@+id/chest"
@@ -52,8 +75,8 @@
         android:id="@+id/chest_field"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="horizontal"
-        android:inputType="numberDecimal"/>
+        android:inputType="numberDecimal"
+        android:scrollbars="horizontal" />
 
     <TextView
         android:id="@+id/waist"
@@ -65,8 +88,8 @@
         android:id="@+id/waist_field"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="horizontal"
-        android:inputType="numberDecimal"/>
+        android:inputType="numberDecimal"
+        android:scrollbars="horizontal" />
 
     <TextView
         android:id="@+id/hip"
@@ -78,8 +101,8 @@
         android:id="@+id/hip_field"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="horizontal"
-        android:inputType="numberDecimal"/>
+        android:inputType="numberDecimal"
+        android:scrollbars="horizontal" />
 
     <TextView
         android:id="@+id/inseam"
@@ -91,8 +114,8 @@
         android:id="@+id/inseam_field"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="horizontal"
-        android:inputType="numberDecimal"/>
+        android:inputType="numberDecimal"
+        android:scrollbars="horizontal" />
 
     <TextView
         android:id="@+id/comment"
@@ -105,11 +128,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:scrollbars="horizontal" />
+    </LinearLayout>
+    </ScrollView>
 
-    <Button
-        android:id="@+id/save"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Save" />
-</LinearLayout>
+
+</RelativeLayout>
