@@ -18,7 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddRecord"></activity>
+        <activity android:name=".AddRecord" />
+        <activity android:name=".EditRecord"></activity>
     </application>
 
 </manifest>
