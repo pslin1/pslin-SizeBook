@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
             Gson gson = new Gson();
 
-//            new TypeToken<ArrayList<Tweet>>().getType());
+            //new TypeToken<ArrayList<Tweet>>().getType());
             //Taken from http://stackoverflow.com/questions/12384064/gson-convert-from-json-to-a-typed-arraylistt
             //2017-01-24 18:19
             Type listType = new TypeToken<ArrayList<Record>>(){}.getType();
