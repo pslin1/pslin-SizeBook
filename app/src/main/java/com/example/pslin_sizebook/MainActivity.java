@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         //setResult(RESULT_OK);
         //setContentView(R.layout.record_display);
 
-        saveInFile();
+        //saveInFile();
 
     }
 
@@ -97,25 +97,25 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void saveInFile() {
-        try {
-            FileOutputStream fos = openFileOutput(((MyApplication)getApplicationContext()).FILENAME,
-                    Context.MODE_PRIVATE);
-            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(fos));
-
-            Gson gson = new Gson();
-            gson.toJson(((MyApplication)getApplicationContext()).recordsList, out);
-            out.flush();
-
-            fos.close();
-        } catch (FileNotFoundException e) {
-            // TODO: Handle the Exception later
-            throw new RuntimeException();
-        } catch (IOException e) {
-            // TODO: Handle the Exception Later
-            throw new RuntimeException();
-        }
-    }
+//    private void saveInFile() {
+//        try {
+//            FileOutputStream fos = openFileOutput(((MyApplication)getApplicationContext()).FILENAME,
+//                    Context.MODE_PRIVATE);
+//            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(fos));
+//
+//            Gson gson = new Gson();
+//            gson.toJson(((MyApplication)getApplicationContext()).recordsList, out);
+//            out.flush();
+//
+//            fos.close();
+//        } catch (FileNotFoundException e) {
+//            // TODO: Handle the Exception later
+//            throw new RuntimeException();
+//        } catch (IOException e) {
+//            // TODO: Handle the Exception Later
+//            throw new RuntimeException();
+//        }
+//    }
 
 
     @Override

@@ -1,5 +1,6 @@
 package com.example.pslin_sizebook;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +9,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.gson.Gson;
+
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
 public class AddRecord extends AppCompatActivity {
@@ -122,12 +130,31 @@ public class AddRecord extends AppCompatActivity {
 
 
                 ((MyApplication)getApplicationContext()).recordsList.add(record);
-
+                saveInFile();
                 //adapter.notifyDataSetChanged();
 
 
             }
         });
 
+    }
+    private void saveInFile() {
+        try {
+            FileOutputStream fos = openFileOutput(((MyApplication)getApplicationContext()).FILENAME,
+                    Context.MODE_PRIVATE);
+            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(fos));
+
+            Gson gson = new Gson();
+            gson.toJson(((MyApplication)getApplicationContext()).recordsList, out);
+            out.flush();
+
+            fos.close();
+        } catch (FileNotFoundException e) {
+            // TODO: Handle the Exception later
+            throw new RuntimeException();
+        } catch (IOException e) {
+            // TODO: Handle the Exception Later
+            throw new RuntimeException();
+        }
     }
 }
