@@ -1,6 +1,7 @@
 package com.example.pslin_sizebook;
 
 import android.app.Application;
+import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
 
@@ -12,8 +13,11 @@ import java.util.ArrayList;
 public class MyApplication extends Application {
 
     public ArrayList<Record> recordsList = null;
+    public static final String FILENAME = "file.sav";
+    //public ArrayAdapter<Record> adapter;
 
     public MyApplication() {
         recordsList = new ArrayList<Record>();
+        //adapter = new ArrayAdapter<Record>(this, R.layout.record_list, recordsList);
     }
 }

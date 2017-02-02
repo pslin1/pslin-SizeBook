@@ -123,6 +123,8 @@ public class AddRecord extends AppCompatActivity {
 
                 ((MyApplication)getApplicationContext()).recordsList.add(record);
 
+                //adapter.notifyDataSetChanged();
+
 
             }
         });

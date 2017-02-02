@@ -30,14 +30,14 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     //TODO: add persistent saving system use setters for no mandatory fields in RECORD
-    private static final String FILENAME = "file.sav";
+    //private static final String FILENAME = "file.sav";
     private ListView oldRecordsList;
     //ArrayList<Record> recordList = new ArrayList<Record>();
-    private ArrayAdapter<Record> adapter;
+    //private ArrayAdapter<Record> adapter;
     //private ArrayList<Record> recordList;
     //might add new arraylist here to get rid of NULLPOINTER EXCEPTION
     //java pass by reference vs java pass by value
-    //private ArrayAdapter<Record> adapter;
+    private ArrayAdapter<Record> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,19 +54,23 @@ public class MainActivity extends AppCompatActivity {
                 ((MyApplication)getApplicationContext()).recordsList.clear();
 
                 adapter.notifyDataSetChanged();
-                deleteFile(FILENAME);
+                deleteFile(((MyApplication)getApplicationContext()).FILENAME);
             }
         });
 
     }
-
+    public void onResume() {
+        super.onResume();
+        adapter.notifyDataSetChanged();
+    }
     public void addRecord(View view) {
         Intent intent = new Intent(this, AddRecord.class);
         //intent.putExtra("recordListKey", recordList);
         startActivity(intent);
+        adapter.notifyDataSetChanged();
         //setResult(RESULT_OK);
         //setContentView(R.layout.record_display);
-        adapter.notifyDataSetChanged();
+
         saveInFile();
 
     }
@@ -74,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void readFromFile() {
         try {
-            FileInputStream fis = openFileInput(FILENAME);
+            FileInputStream fis = openFileInput(((MyApplication)getApplicationContext()).FILENAME);
             BufferedReader in = new BufferedReader(new InputStreamReader(fis));
 
             Gson gson = new Gson();
@@ -95,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void saveInFile() {
         try {
-            FileOutputStream fos = openFileOutput(FILENAME,
+            FileOutputStream fos = openFileOutput(((MyApplication)getApplicationContext()).FILENAME,
                     Context.MODE_PRIVATE);
             BufferedWriter out = new BufferedWriter(new OutputStreamWriter(fos));
 
