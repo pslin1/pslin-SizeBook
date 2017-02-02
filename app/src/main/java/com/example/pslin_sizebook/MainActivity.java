@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
                             record.setNeck("NULL");
                         }
                         else {
+                            neckText = String.format("%.1f", Float.parseFloat(neckText));
                             record.setNeck(neckText);
                         }
 
@@ -99,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
                             record.setBust("NULL");
                         }
                         else {
+                            bustText = String.format("%.1f", Float.parseFloat(bustText));
                             record.setBust(bustText);
                         }
 
@@ -108,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
                             record.setChest("NULL");
                         }
                         else {
+                            chestText = String.format("%.1f", Float.parseFloat(chestText));
                             record.setChest(chestText);
                         }
 
@@ -117,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
                             record.setWaist("NULL");
                         }
                         else {
+                            waistText = String.format("%.1f", Float.parseFloat(waistText));
                             record.setWaist(waistText);
                         }
 
@@ -126,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
                             record.setHip("NULL");
                         }
                         else {
+                            hipText = String.format("%.1f", Float.parseFloat(hipText));
                             record.setHip(hipText);
                         }
 
@@ -135,6 +140,7 @@ public class MainActivity extends AppCompatActivity {
                             record.setInseam("NULL");
                         }
                         else {
+                            inseamText = String.format("%.1f", Float.parseFloat(inseamText));
                             record.setInseam(inseamText);
                         }
 
