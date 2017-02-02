@@ -59,10 +59,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-    public void onResume() {
-        super.onResume();
-        adapter.notifyDataSetChanged();
-    }
+//    public void onResume() {
+//        super.onResume();
+//        adapter.notifyDataSetChanged();
+//    }
     public void addRecord(View view) {
         Intent intent = new Intent(this, AddRecord.class);
         //intent.putExtra("recordListKey", recordList);
