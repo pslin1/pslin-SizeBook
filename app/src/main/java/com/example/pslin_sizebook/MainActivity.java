@@ -2,6 +2,7 @@ package com.example.pslin_sizebook;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -31,156 +32,87 @@ public class MainActivity extends AppCompatActivity {
     //TODO: add persistent saving system use setters for no mandatory fields in RECORD
     private static final String FILENAME = "file.sav";
     private ListView oldRecordsList;
-    private EditText dateEditText;
-    private EditText nameEditText;
-    private EditText neckEditText;
-    private EditText bustEditText;
-    private EditText chestEditText;
-    private EditText waistEditText;
-    private EditText hipEditText;
-    private EditText inseamEditText;
-    private EditText commentEditText;
+    //ArrayList<Record> recordList = new ArrayList<Record>();
+    private ArrayAdapter<Record> adapter;
     //private ArrayList<Record> recordList;
-    ArrayList<Record> recordList = new ArrayList<Record>();
     //might add new arraylist here to get rid of NULLPOINTER EXCEPTION
     //java pass by reference vs java pass by value
-    private ArrayAdapter<Record> adapter;
+    //private ArrayAdapter<Record> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Button addButton = (Button) findViewById(R.id.addRecord);
-        oldRecordsList = (ListView) findViewById(R.id.oldRecordsList);
         Button deleteButton = (Button) findViewById(R.id.deleteRecord);
-
-        addButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                setResult(RESULT_OK);
-                setContentView(R.layout.record_display);
-
-                Button saveButton = (Button) findViewById(R.id.save);
-                saveButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        setResult(RESULT_OK);
-                        nameEditText = (EditText) findViewById(R.id.name_field);
-                        String name = nameEditText.getText().toString();
-
-                        Record record = null;
-                        record = new Record(name);
-
-                        //taken from http://stackoverflow.com/questions/6290531/check-if-edittext-is-empty
-                        //Feb 1, 2017, 16:18
-                        dateEditText = (EditText) findViewById(R.id.date_field);
-                        String date = dateEditText.getText().toString();
-                        if (date.matches("")) {
-                            record.setDate("NULL");
-                        }
-                        else {
-                            record.setDate(date);
-                        }
-
-                        neckEditText = (EditText) findViewById(R.id.neck_field);
-                        String neckText = neckEditText.getText().toString();
-                        if (neckText.matches("")) {
-                            record.setNeck("NULL");
-                        }
-                        else {
-                            neckText = String.format("%.1f", Float.parseFloat(neckText));
-                            record.setNeck(neckText);
-                        }
-
-                        bustEditText = (EditText) findViewById(R.id.bust_field);
-                        String bustText = bustEditText.getText().toString();
-                        if (bustText.matches("")) {
-                            record.setBust("NULL");
-                        }
-                        else {
-                            bustText = String.format("%.1f", Float.parseFloat(bustText));
-                            record.setBust(bustText);
-                        }
-
-                        chestEditText = (EditText) findViewById(R.id.chest_field);
-                        String chestText = chestEditText.getText().toString();
-                        if (chestText.matches("")) {
-                            record.setChest("NULL");
-                        }
-                        else {
-                            chestText = String.format("%.1f", Float.parseFloat(chestText));
-                            record.setChest(chestText);
-                        }
-
-                        waistEditText = (EditText) findViewById(R.id.waist_field) ;
-                        String waistText = waistEditText.getText().toString();
-                        if (waistText.matches("")) {
-                            record.setWaist("NULL");
-                        }
-                        else {
-                            waistText = String.format("%.1f", Float.parseFloat(waistText));
-                            record.setWaist(waistText);
-                        }
-
-                        hipEditText = (EditText) findViewById(R.id.hip_field);
-                        String hipText = hipEditText.getText().toString();
-                        if (hipText.matches("")) {
-                            record.setHip("NULL");
-                        }
-                        else {
-                            hipText = String.format("%.1f", Float.parseFloat(hipText));
-                            record.setHip(hipText);
-                        }
-
-                        inseamEditText = (EditText) findViewById(R.id.inseam_field);
-                        String inseamText = inseamEditText.getText().toString();
-                        if (inseamText.matches("")) {
-                            record.setInseam("NULL");
-                        }
-                        else {
-                            inseamText = String.format("%.1f", Float.parseFloat(inseamText));
-                            record.setInseam(inseamText);
-                        }
-
-                        commentEditText = (EditText) findViewById(R.id.comment_field);
-                        String commentText = commentEditText.getText().toString();
-                        if (commentText.matches("")) {
-                            record.setComment("NULL");
-                        }
-                        else {
-                            record.setComment(commentText);
-                        }
-
-                        //Float chest = Float.parseFloat();
-
-
-
-
-
-
-                        recordList.add(record);
-                        adapter.notifyDataSetChanged();
-
-                        saveInFile();
-                        setContentView(R.layout.activity_main);
-                    }
-                });
-            }
-        });
+        //Button addButton = (Button) findViewById(R.id.addRecord);
+        oldRecordsList = (ListView) findViewById(R.id.oldRecordsList);
 
         deleteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
+
             public void onClick(View v) {
                 setResult(RESULT_OK);
-                recordList.clear();
+                ((MyApplication)getApplicationContext()).recordsList.clear();
 
                 adapter.notifyDataSetChanged();
                 deleteFile(FILENAME);
             }
         });
+
     }
+
+    public void addRecord(View view) {
+        Intent intent = new Intent(this, AddRecord.class);
+        //intent.putExtra("recordListKey", recordList);
+        startActivity(intent);
+        //setResult(RESULT_OK);
+        //setContentView(R.layout.record_display);
+        adapter.notifyDataSetChanged();
+        saveInFile();
+
+    }
+
+
+    private void readFromFile() {
+        try {
+            FileInputStream fis = openFileInput(FILENAME);
+            BufferedReader in = new BufferedReader(new InputStreamReader(fis));
+
+            Gson gson = new Gson();
+
+//            new TypeToken<ArrayList<Tweet>>().getType());
+            //Taken from http://stackoverflow.com/questions/12384064/gson-convert-from-json-to-a-typed-arraylistt
+            //2017-01-24 18:19
+            Type listType = new TypeToken<ArrayList<Record>>(){}.getType();
+            ((MyApplication)getApplicationContext()).recordsList = gson.fromJson(in, listType);
+
+        } catch (FileNotFoundException e) {
+            ((MyApplication)getApplicationContext()).recordsList = new ArrayList<Record>();
+            // TODO Auto-generated catch block
+
+        }
+
+    }
+
+    private void saveInFile() {
+        try {
+            FileOutputStream fos = openFileOutput(FILENAME,
+                    Context.MODE_PRIVATE);
+            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(fos));
+
+            Gson gson = new Gson();
+            gson.toJson(((MyApplication)getApplicationContext()).recordsList, out);
+            out.flush();
+
+            fos.close();
+        } catch (FileNotFoundException e) {
+            // TODO: Handle the Exception later
+            throw new RuntimeException();
+        } catch (IOException e) {
+            // TODO: Handle the Exception Later
+            throw new RuntimeException();
+        }
+    }
+
 
     @Override
     protected void onStart() {
@@ -189,39 +121,9 @@ public class MainActivity extends AppCompatActivity {
         readFromFile();
         //creates arraylist or else new arrayadapter crashes
 
-        adapter = new ArrayAdapter<Record>(this, R.layout.record_list, recordList);
+        adapter = new ArrayAdapter<Record>(this, R.layout.record_list, ((MyApplication)getApplicationContext()).recordsList);
         oldRecordsList.setAdapter(adapter);
     }
 
-    protected void readFromFile() {
-        try {
-            FileInputStream fis = openFileInput(FILENAME);
-            BufferedReader in = new BufferedReader(new InputStreamReader(fis));
 
-            Gson gson = new Gson();
-            //Taken from http://stackoverflow.com/questions/12384064/gson-convert-from-json-to-a-typed-arraylistt
-            //Jan/31/2017 13:41
-            Type listType = new TypeToken<ArrayList<Record>>(){}.getType();
-            recordList = gson.fromJson(in, listType);
-        } catch (FileNotFoundException e) {
-            recordList = new ArrayList<Record>();
-        }
-    }
-
-    protected void saveInFile() {
-        try {
-            FileOutputStream fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
-            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(fos));
-
-            Gson gson = new Gson();
-            gson.toJson(recordList, out);
-            out.flush();
-
-            fos.close();
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException();
-        } catch (IOException e) {
-            throw new RuntimeException();
-        }
-    }
 }
