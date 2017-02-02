@@ -79,7 +79,7 @@
             android:id="@+id/chest"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Bust: " />
+            android:text="Chest: " />
 
         <EditText
             android:id="@+id/chest_field"

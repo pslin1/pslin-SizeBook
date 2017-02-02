@@ -31,8 +31,19 @@ public class MainActivity extends AppCompatActivity {
     //TODO: add persistent saving system use setters for no mandatory fields in RECORD
     private static final String FILENAME = "file.sav";
     private ListView oldRecordsList;
-    private EditText nameText;
-    private ArrayList<Record> recordList;
+    private EditText dateEditText;
+    private EditText nameEditText;
+    private EditText neckEditText;
+    private EditText bustEditText;
+    private EditText chestEditText;
+    private EditText waistEditText;
+    private EditText hipEditText;
+    private EditText inseamEditText;
+    private EditText commentEditText;
+    //private ArrayList<Record> recordList;
+    ArrayList<Record> recordList = new ArrayList<Record>();
+    //might add new arraylist here to get rid of NULLPOINTER EXCEPTION
+    //java pass by reference vs java pass by value
     private ArrayAdapter<Record> adapter;
 
     @Override
@@ -56,12 +67,92 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         setResult(RESULT_OK);
-                        nameText = (EditText) findViewById(R.id.name_field);
-                        String name = nameText.getText().toString();
+                        nameEditText = (EditText) findViewById(R.id.name_field);
+                        String name = nameEditText.getText().toString();
 
-                        //Record record = null;
+                        Record record = null;
+                        record = new Record(name);
 
-                        Record record = new Record(name);
+                        //taken from http://stackoverflow.com/questions/6290531/check-if-edittext-is-empty
+                        //Feb 1, 2017, 16:18
+                        dateEditText = (EditText) findViewById(R.id.date_field);
+                        String date = dateEditText.getText().toString();
+                        if (date.matches("")) {
+                            record.setDate("NULL");
+                        }
+                        else {
+                            record.setDate(date);
+                        }
+
+                        neckEditText = (EditText) findViewById(R.id.neck_field);
+                        String neckText = neckEditText.getText().toString();
+                        if (neckText.matches("")) {
+                            record.setNeck("NULL");
+                        }
+                        else {
+                            record.setNeck(neckText);
+                        }
+
+                        bustEditText = (EditText) findViewById(R.id.bust_field);
+                        String bustText = bustEditText.getText().toString();
+                        if (bustText.matches("")) {
+                            record.setBust("NULL");
+                        }
+                        else {
+                            record.setBust(bustText);
+                        }
+
+                        chestEditText = (EditText) findViewById(R.id.chest_field);
+                        String chestText = chestEditText.getText().toString();
+                        if (chestText.matches("")) {
+                            record.setChest("NULL");
+                        }
+                        else {
+                            record.setChest(chestText);
+                        }
+
+                        waistEditText = (EditText) findViewById(R.id.waist_field) ;
+                        String waistText = waistEditText.getText().toString();
+                        if (waistText.matches("")) {
+                            record.setWaist("NULL");
+                        }
+                        else {
+                            record.setWaist(waistText);
+                        }
+
+                        hipEditText = (EditText) findViewById(R.id.hip_field);
+                        String hipText = hipEditText.getText().toString();
+                        if (hipText.matches("")) {
+                            record.setHip("NULL");
+                        }
+                        else {
+                            record.setHip(hipText);
+                        }
+
+                        inseamEditText = (EditText) findViewById(R.id.inseam_field);
+                        String inseamText = inseamEditText.getText().toString();
+                        if (inseamText.matches("")) {
+                            record.setInseam("NULL");
+                        }
+                        else {
+                            record.setInseam(inseamText);
+                        }
+
+                        commentEditText = (EditText) findViewById(R.id.comment_field);
+                        String commentText = commentEditText.getText().toString();
+                        if (commentText.matches("")) {
+                            record.setComment("NULL");
+                        }
+                        else {
+                            record.setComment(commentText);
+                        }
+
+                        //Float chest = Float.parseFloat();
+
+
+
+
+
 
                         recordList.add(record);
                         adapter.notifyDataSetChanged();
@@ -72,15 +163,26 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
+
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setResult(RESULT_OK);
+                recordList.clear();
+
+                adapter.notifyDataSetChanged();
+                deleteFile(FILENAME);
+            }
+        });
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-
+        //recordList = new ArrayList<>();
         readFromFile();
         //creates arraylist or else new arrayadapter crashes
-        recordList = new ArrayList<Record>();
+
         adapter = new ArrayAdapter<Record>(this, R.layout.record_list, recordList);
         oldRecordsList.setAdapter(adapter);
     }
