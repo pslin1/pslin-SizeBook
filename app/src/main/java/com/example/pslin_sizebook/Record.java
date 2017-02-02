@@ -95,6 +95,6 @@ public class Record {
 
     @Override
     public String toString() {
-        return "Name: " + name + " | " + "Chest: " + this.getChest();
+        return "Name: " + name + " | " + "Date: " + this.getDate() + " | " + "Neck: " + this.getNeck() + " | " + "Bust: " + this.getBust() + " | " + "Chest: " + this.getChest() + " | " + "Waist: " + this.getWaist() + " | " + "Hip: " + this.getHip() + " | " + "Inseam: " + this.getInseam() + " | " + "Comments: " + this.getComment();
     }
 }

@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -43,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //int numRecords = ((MyApplication)getApplicationContext()).recordsList.size();
+        //TextView textView = (TextView) this.findViewById(R.id.Records);
+        //textView.setText(String.valueOf(numRecords));
         Button deleteButton = (Button) findViewById(R.id.deleteRecord);
         //Button addButton = (Button) findViewById(R.id.addRecord);
         oldRecordsList = (ListView) findViewById(R.id.oldRecordsList);
@@ -55,14 +59,18 @@ public class MainActivity extends AppCompatActivity {
 
                 adapter.notifyDataSetChanged();
                 deleteFile(((MyApplication)getApplicationContext()).FILENAME);
+
             }
         });
 
     }
-//    public void onResume() {
-//        super.onResume();
-//        adapter.notifyDataSetChanged();
-//    }
+    public void onResume() {
+        super.onResume();
+        int numRecords = ((MyApplication)getApplicationContext()).recordsList.size();
+        TextView textView = (TextView) this.findViewById(R.id.Records);
+        String recordsCount = "Number of Records: " + String.valueOf(numRecords);
+        textView.setText(recordsCount);
+    }
     public void addRecord(View view) {
         Intent intent = new Intent(this, AddRecord.class);
         //intent.putExtra("recordListKey", recordList);

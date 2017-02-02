@@ -10,7 +10,7 @@
         android:id="@+id/Records"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Records" />
+        android:text=" @string/numRecords" />
 
     <ListView
         android:id="@+id/oldRecordsList"
@@ -32,6 +32,6 @@
         android:id="@+id/deleteRecord"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Delete Record" />
+        android:text="Delete All Records" />
 
 </LinearLayout>

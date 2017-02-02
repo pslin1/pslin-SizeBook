@@ -131,6 +131,7 @@ public class AddRecord extends AppCompatActivity {
 
                 ((MyApplication)getApplicationContext()).recordsList.add(record);
                 saveInFile();
+
                 //adapter.notifyDataSetChanged();
 
 
@@ -150,10 +151,8 @@ public class AddRecord extends AppCompatActivity {
 
             fos.close();
         } catch (FileNotFoundException e) {
-            // TODO: Handle the Exception later
             throw new RuntimeException();
         } catch (IOException e) {
-            // TODO: Handle the Exception Later
             throw new RuntimeException();
         }
     }
