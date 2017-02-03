@@ -10,4 +10,151 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.pslin_sizebook.EditRecord">
 
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Delete Record" />
+    <Button
+        android:id="@+id/saveChanges"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/delete"
+        android:text="Save Changes" />
+    <ScrollView
+        android:id="@+id/record_fields_edit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/saveChanges">
+        <LinearLayout
+
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/date_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Date: " />
+
+            <EditText
+                android:id="@+id/date_field_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:hint="YYYY/MM/DD"
+                android:scrollbars="horizontal" />
+            <TextView
+                android:id="@+id/name_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Name: " />
+
+            <EditText
+                android:id="@+id/name_field_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:scrollbars="horizontal" />
+
+            <TextView
+                android:id="@+id/neck_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Neck: " />
+
+            <EditText
+                android:id="@+id/neck_field_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="Circumference in inches"
+                android:scrollbars="horizontal" />
+
+            <TextView
+                android:id="@+id/bust_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Bust: " />
+
+            <EditText
+                android:id="@+id/bust_field_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="Circumference in inches"
+                android:scrollbars="horizontal" />
+
+            <TextView
+                android:id="@+id/chest_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Chest: " />
+
+            <EditText
+                android:id="@+id/chest_field_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="Circumference in inches"
+                android:scrollbars="horizontal" />
+
+            <TextView
+                android:id="@+id/waist_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Waist: " />
+
+            <EditText
+                android:id="@+id/waist_field_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="Circumference in inches"
+                android:scrollbars="horizontal" />
+
+            <TextView
+                android:id="@+id/hip_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Hip: " />
+
+            <EditText
+                android:id="@+id/hip_field_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="Circumference in inches"
+                android:scrollbars="horizontal" />
+
+            <TextView
+                android:id="@+id/inseam_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Inseam: " />
+
+            <EditText
+                android:id="@+id/inseam_field_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="Length in inches"
+                android:scrollbars="horizontal" />
+
+            <TextView
+                android:id="@+id/comment_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Comments: " />
+
+            <EditText
+                android:id="@+id/comment_field_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:scrollbars="horizontal" />
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

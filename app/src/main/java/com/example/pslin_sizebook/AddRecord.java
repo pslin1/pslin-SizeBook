@@ -36,12 +36,12 @@ public class AddRecord extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_record);
-        Bundle bundle = getIntent().getExtras();
+        //Bundle bundle = getIntent().getExtras();
         //Taken from http://stackoverflow.com/questions/21250339/how-to-pass-arraylistcustomeobject-from-one-activity-to-another
         //Feb 1, 2017, 18:50
         //ArrayList<Record> recordList = (ArrayList<Record>) bundle.getSerializable("recordsListKey");
 
-        Intent intent = getIntent();
+        //Intent intent = getIntent();
 
         Button saveButton = (Button) findViewById(R.id.save);
         saveButton.setOnClickListener(new View.OnClickListener() {

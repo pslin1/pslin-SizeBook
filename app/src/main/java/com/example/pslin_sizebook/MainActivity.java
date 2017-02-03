@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     //private ArrayList<Record> recordList;
     //might add new arraylist here to get rid of NULLPOINTER EXCEPTION
     //java pass by reference vs java pass by value
-    private ArrayAdapter<Record> adapter;
+    private RecordAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,12 +51,24 @@ public class MainActivity extends AppCompatActivity {
         Button deleteButton = (Button) findViewById(R.id.deleteRecord);
         //Button addButton = (Button) findViewById(R.id.addRecord);
         oldRecordsList = (ListView) findViewById(R.id.oldRecordsList);
+        //Taken from http://stackoverflow.com/questions/30711517/how-to-change-the-contents-of-listview-on-item-click
+        //Feb 2, 2017, 18:00
+        oldRecordsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("pos", position);
+                editRecord(view, bundle);
+                //((MyApplication)getApplicationContext()).recordsList.remove(position);
+                //saveInFile();
+                adapter.notifyDataSetChanged();
+            }
+        });
 
         deleteButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
                 setResult(RESULT_OK);
-                ((MyApplication)getApplicationContext()).recordsList.clear();
 
                 adapter.notifyDataSetChanged();
                 deleteFile(((MyApplication)getApplicationContext()).FILENAME);
@@ -70,6 +83,13 @@ public class MainActivity extends AppCompatActivity {
         TextView textView = (TextView) this.findViewById(R.id.Records);
         String recordsCount = "Number of Records: " + String.valueOf(numRecords);
         textView.setText(recordsCount);
+        //adapter.notifyDataSetChanged();
+    }
+    public void editRecord(View view, Bundle bundle) {
+        Intent intent = new Intent(this, EditRecord.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
+        adapter.notifyDataSetChanged();
     }
     public void addRecord(View view) {
         Intent intent = new Intent(this, AddRecord.class);
@@ -133,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
         readFromFile();
         //creates arraylist or else new arrayadapter crashes
 
-        adapter = new ArrayAdapter<Record>(this, R.layout.record_list, ((MyApplication)getApplicationContext()).recordsList);
+        adapter = new RecordAdapter(this, R.layout.record_list, ((MyApplication)getApplicationContext()).recordsList);
         oldRecordsList.setAdapter(adapter);
     }
 
