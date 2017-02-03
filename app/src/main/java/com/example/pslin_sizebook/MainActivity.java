@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         //int numRecords = ((MyApplication)getApplicationContext()).recordsList.size();
         //TextView textView = (TextView) this.findViewById(R.id.Records);
         //textView.setText(String.valueOf(numRecords));
-        Button deleteButton = (Button) findViewById(R.id.deleteRecord);
         //Button addButton = (Button) findViewById(R.id.addRecord);
         oldRecordsList = (ListView) findViewById(R.id.oldRecordsList);
         //Taken from http://stackoverflow.com/questions/30711517/how-to-change-the-contents-of-listview-on-item-click
@@ -65,16 +64,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        deleteButton.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View v) {
-                setResult(RESULT_OK);
-
-                adapter.notifyDataSetChanged();
-                deleteFile(((MyApplication)getApplicationContext()).FILENAME);
-
-            }
-        });
 
     }
     public void onResume() {

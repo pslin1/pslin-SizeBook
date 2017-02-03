@@ -28,10 +28,5 @@
         android:text="Add Record"
         android:onClick="addRecord"/>
 
-    <Button
-        android:id="@+id/deleteRecord"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Delete All Records" />
 
 </LinearLayout>
