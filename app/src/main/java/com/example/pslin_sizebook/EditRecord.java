@@ -44,6 +44,33 @@ public class EditRecord extends AppCompatActivity {
                 saveInFile();
             }
         });
+        Record record = ((MyApplication)getApplicationContext()).recordsList.get(id);
+        EditText nameText = (EditText) findViewById(R.id.name_field_edit);
+        nameText.setHint(record.getName());
+
+        EditText dateText = (EditText) findViewById(R.id.date_field_edit);
+        dateText.setHint(record.getDate());
+
+        EditText neckText = (EditText) findViewById(R.id.neck_field_edit);
+        neckText.setHint(record.getNeck());
+
+        EditText bustText = (EditText) findViewById(R.id.bust_field_edit);
+        bustText.setHint(record.getBust());
+
+        EditText chestText = (EditText) findViewById(R.id.chest_field_edit);
+        chestText.setHint(record.getChest());
+
+        EditText waistText = (EditText) findViewById(R.id.waist_field_edit);
+        waistText.setHint(record.getWaist());
+
+        EditText hipText = (EditText) findViewById(R.id.hip_field_edit);
+        hipText.setHint(record.getHip());
+
+        EditText inseamText = (EditText) findViewById(R.id.inseam_field_edit);
+        inseamText.setHint(record.getInseam());
+
+        EditText commentText = (EditText) findViewById(R.id.comment_field_edit);
+        commentText.setHint(record.getComment());
         Button saveChangesButton = (Button) findViewById(R.id.saveChanges);
         saveChangesButton.setOnClickListener(new View.OnClickListener() {
             @Override
