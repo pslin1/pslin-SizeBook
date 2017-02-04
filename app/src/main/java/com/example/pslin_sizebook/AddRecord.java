@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -50,6 +51,10 @@ public class AddRecord extends AppCompatActivity {
                 setResult(RESULT_OK);
                 nameEditText = (EditText) findViewById(R.id.name_field);
                 String name = nameEditText.getText().toString();
+                if (name.matches("")) {
+                    Toast.makeText(getApplicationContext(), "Please enter a name!", Toast.LENGTH_LONG).show();
+                    return;
+                }
 
                 Record record = null;
                 record = new Record(name);
