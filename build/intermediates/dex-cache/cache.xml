@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Android\sdk\Android_sdk\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.0\support-annotations-25.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
+        <dex dex="C:\Android\Projects\pslin-SizeBook\app\build\intermediates\pre-dexed\debug\support-annotations-25.1.0_8814570754b56a5508f6fd13a351b5f37b4890d9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\Projects\pslin-SizeBook\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="aee64634871d88a419d59eb743c1258a60f19700">
+        <dex dex="C:\Android\Projects\pslin-SizeBook\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-25.1.0_7e5186a0bb958b773891404964fc98d5a678644e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\Projects\pslin-SizeBook\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
+        <dex dex="C:\Android\Projects\pslin-SizeBook\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-25.1.0_049da53d6c63a256c8ba96c531ea691129f65f54.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\Projects\pslin-SizeBook\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
+        <dex dex="C:\Android\Projects\pslin-SizeBook\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-25.1.0_749acd24b0dedd420798a8170f4cceb989e56974.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\Projects\pslin-SizeBook\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Android\Projects\pslin-SizeBook\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-25.1.0_937eddabd0ab057117e275932298ac5cba5ae4d2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\Projects\pslin-SizeBook\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
+        <dex dex="C:\Android\Projects\pslin-SizeBook\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-25.1.0_c329fb74662e53e1ec3a1acd75e0a5a23367bc92.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\Projects\pslin-SizeBook\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
+        <dex dex="C:\Android\Projects\pslin-SizeBook\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-25.1.0_092414e566d66a8ef67865de7ac4204da0c5ef91.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\Projects\pslin-SizeBook\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="C:\Android\Projects\pslin-SizeBook\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-25.1.0_38f16719c78bdbc76f4fb921f0c3b9b2e1fdfa6f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Pierre Lin\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.8.0\c4ba5371a29ac9b2ad6129b1d39ea38750043eff\gson-2.8.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c4ba5371a29ac9b2ad6129b1d39ea38750043eff">
+        <dex dex="C:\Android\Projects\pslin-SizeBook\app\build\intermediates\pre-dexed\debug\gson-2.8.0_cfe2cca8c4c53152050e8c4b68f4f7b1ea26f6e5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\Projects\pslin-SizeBook\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
+        <dex dex="C:\Android\Projects\pslin-SizeBook\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-25.1.0_255bfed06a6a0537219e463190d8f098afad8c34.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\Projects\pslin-SizeBook\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
+        <dex dex="C:\Android\Projects\pslin-SizeBook\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-25.1.0_88c288f86a6f1eeb639e9ea27454e5c5e47646bd.jar" />
+    </item>
+
+</items>
