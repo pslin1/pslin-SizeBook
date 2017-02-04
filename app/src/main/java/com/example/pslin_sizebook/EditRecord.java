@@ -44,6 +44,7 @@ public class EditRecord extends AppCompatActivity {
                 saveInFile();
             }
         });
+        //sets instance variables of this record as hint text
         Record record = ((MyApplication)getApplicationContext()).recordsList.get(id);
         EditText nameText = (EditText) findViewById(R.id.name_field_edit);
         nameText.setHint(record.getName());
@@ -71,6 +72,7 @@ public class EditRecord extends AppCompatActivity {
 
         EditText commentText = (EditText) findViewById(R.id.comment_field_edit);
         commentText.setHint(record.getComment());
+
         Button saveChangesButton = (Button) findViewById(R.id.saveChanges);
         saveChangesButton.setOnClickListener(new View.OnClickListener() {
             @Override
