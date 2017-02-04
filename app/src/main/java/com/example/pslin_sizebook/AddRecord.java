@@ -29,7 +29,6 @@ public class AddRecord extends AppCompatActivity {
     private EditText hipEditText;
     private EditText inseamEditText;
     private EditText commentEditText;
-    //private ArrayAdapter<Record> adapter;
 
 
 
@@ -37,12 +36,6 @@ public class AddRecord extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_record);
-        //Bundle bundle = getIntent().getExtras();
-        //Taken from http://stackoverflow.com/questions/21250339/how-to-pass-arraylistcustomeobject-from-one-activity-to-another
-        //Feb 1, 2017, 18:50
-        //ArrayList<Record> recordList = (ArrayList<Record>) bundle.getSerializable("recordsListKey");
-
-        //Intent intent = getIntent();
 
         Button saveButton = (Button) findViewById(R.id.save);
         saveButton.setOnClickListener(new View.OnClickListener() {
@@ -51,6 +44,7 @@ public class AddRecord extends AppCompatActivity {
                 setResult(RESULT_OK);
                 nameEditText = (EditText) findViewById(R.id.name_field);
                 String name = nameEditText.getText().toString();
+                //name field is mandatory
                 if (name.matches("")) {
                     Toast.makeText(getApplicationContext(), "Please enter a name!", Toast.LENGTH_LONG).show();
                     return;
@@ -61,6 +55,8 @@ public class AddRecord extends AppCompatActivity {
 
                 //taken from http://stackoverflow.com/questions/6290531/check-if-edittext-is-empty
                 //Feb 1, 2017, 16:18
+                //sets attributes of record to whatever is in the EditText
+                //if EditText is empty, sets attribute to NULL
                 dateEditText = (EditText) findViewById(R.id.date_field);
                 String date = dateEditText.getText().toString();
                 if (date.matches("")) {
@@ -131,13 +127,9 @@ public class AddRecord extends AppCompatActivity {
                     record.setComment(commentText);
                 }
 
-                //Float chest = Float.parseFloat();
-
-
                 ((MyApplication)getApplicationContext()).recordsList.add(record);
                 saveInFile();
 
-                //adapter.notifyDataSetChanged();
 
 
             }

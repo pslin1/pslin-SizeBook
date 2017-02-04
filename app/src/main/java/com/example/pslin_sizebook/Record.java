@@ -4,6 +4,7 @@ import java.util.Date;
 
 /**
  * Created by Pierre Lin on 1/28/2017.
+ * creates class called Record which represents individual records
  */
 
 public class Record {

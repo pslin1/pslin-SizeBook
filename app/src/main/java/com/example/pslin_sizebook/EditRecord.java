@@ -31,6 +31,8 @@ public class EditRecord extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_record);
+        //gets extras from bundle, gets mouse click position
+        //and corresponding item in recordsList
         Bundle bundle = getIntent().getExtras();
         id = bundle.getInt("pos");
         Button deleteButton = (Button) findViewById(R.id.delete);
@@ -77,6 +79,8 @@ public class EditRecord extends AppCompatActivity {
         saveChangesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //sets attributes of this record to what is in the EditText if the
+                //EditText is not empty
                 Record record = ((MyApplication)getApplicationContext()).recordsList.get(id);
                 dateEditText = (EditText) findViewById(R.id.date_field_edit);
                 String date = dateEditText.getText().toString();
@@ -133,6 +137,7 @@ public class EditRecord extends AppCompatActivity {
                 if(comment != null && !comment.isEmpty()) {
                     record.setComment(comment);
                 }
+
                 saveInFile();
             }
         });

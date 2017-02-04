@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Created by Pierre Lin on 2/2/2017.
+ * creates custom adapter to onItemClickListener can be called
  */
 
 public class RecordAdapter extends ArrayAdapter<Record> {
@@ -17,7 +18,4 @@ public class RecordAdapter extends ArrayAdapter<Record> {
         super(context, resource, objects);
     }
 
-//    public Record getRecord(int index) {
-//        return this.((MyApplication)getApplicationContext()).recordsList
-//    }
 }

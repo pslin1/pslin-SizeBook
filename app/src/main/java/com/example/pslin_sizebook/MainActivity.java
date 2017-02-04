@@ -45,9 +45,11 @@ public class MainActivity extends AppCompatActivity {
         oldRecordsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //mouse click position is passed via bundle, string key "pos"
+                //is retrieved later in EditRecord activity
                 Bundle bundle = new Bundle();
                 bundle.putInt("pos", position);
-                editRecord(view, bundle);
+                editRecord(bundle);
                 adapter.notifyDataSetChanged();
             }
         });
@@ -55,18 +57,23 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void onResume() {
+        //refreshes counter every time we return to MainActivity
         super.onResume();
         int numRecords = ((MyApplication)getApplicationContext()).recordsList.size();
         TextView textView = (TextView) this.findViewById(R.id.Records);
         String recordsCount = "Number of Records: " + String.valueOf(numRecords);
         textView.setText(recordsCount);
     }
-    public void editRecord(View view, Bundle bundle) {
+    //editRecord called whenever an item from oldRecordsList is clicked
+    public void editRecord( Bundle bundle) {
         Intent intent = new Intent(this, EditRecord.class);
         intent.putExtras(bundle);
         startActivity(intent);
         adapter.notifyDataSetChanged();
     }
+    //addRecord called when add record button clicked
+    //no listener, method called when button clicked
+    //on click in activity_main.xml
     public void addRecord(View view) {
         Intent intent = new Intent(this, AddRecord.class);
         startActivity(intent);
@@ -95,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+    //creates adapter when app first starts
     @Override
     protected void onStart() {
         super.onStart();
